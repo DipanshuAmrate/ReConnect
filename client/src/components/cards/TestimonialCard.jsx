@@ -1,65 +1,55 @@
-import SectionTitle from "../common/SectionTitle";
-import TestimonialCard from "../cards/TestimonialCard";
+import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
-import avatar1 from "../../assets/avatars/avatar1.jpg";
-import avatar2 from "../../assets/avatars/avatar2.jpg";
-import avatar3 from "../../assets/avatars/avatar3.jpg";
-
-const testimonials = [
-  {
-    id: 1,
-    image: avatar1,
-    name: "Rahul Sharma",
-    role: "Software Engineer",
-    company: "Google",
-    review:
-      "Through ReConnect I found an amazing mentor who guided me during placement preparation.",
-  },
-  {
-    id: 2,
-    image: avatar2,
-    name: "Priya Singh",
-    role: "Frontend Developer",
-    company: "Microsoft",
-    review:
-      "The alumni referral helped me secure my internship and eventually a full-time offer.",
-  },
-  {
-    id: 3,
-    image: avatar3,
-    name: "Aditya Verma",
-    role: "SDE",
-    company: "Amazon",
-    review:
-      "Networking with alumni gave me confidence and helped me prepare for technical interviews.",
-  },
-];
-
-function Testimonials() {
+function TestimonialCard({
+  image,
+  name,
+  role,
+  company,
+  review,
+}) {
   return (
-    <section className="py-24 bg-lime-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <motion.div
+      whileHover={{ y: -8 }}
+      className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-xl transition-all duration-300"
+    >
+      <Quote
+        className="text-lime-500"
+        size={36}
+      />
 
-        <SectionTitle
-          badge="Success Stories"
-          title="Hear From Our Alumni"
-          subtitle="Real experiences from alumni and students who built meaningful connections through ReConnect."
+      <p className="mt-6 text-gray-600 leading-7 italic">
+        "{review}"
+      </p>
+
+      <div className="flex items-center mt-8">
+
+        <img
+          src={image}
+          alt={name}
+          className="w-14 h-14 rounded-full object-cover"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="ml-4">
 
-          {testimonials.map((item) => (
-            <TestimonialCard
-              key={item.id}
-              {...item}
-            />
-          ))}
+          <h4 className="font-bold text-gray-900">
+            {name}
+          </h4>
+
+          <p className="text-gray-500 text-sm">
+            {role}
+          </p>
+
+          <p className="text-lime-600 font-medium text-sm">
+            {company}
+          </p>
 
         </div>
 
       </div>
-    </section>
+
+    </motion.div>
   );
 }
 
-export default Testimonials;
+export default TestimonialCard;

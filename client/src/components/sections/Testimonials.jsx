@@ -1,79 +1,58 @@
-import { Star } from "lucide-react";
+import SectionTitle from "../common/SectionTitle";
+import TestimonialCard from "../cards/TestimonialCard";
+
+import avatar1 from "../../assets/avatars/avatar1.jpg";
+import avatar2 from "../../assets/avatars/avatar2.jpg";
+import avatar3 from "../../assets/avatars/avatar3.jpg";
 
 const testimonials = [
   {
     id: 1,
+    image: avatar1,
     name: "Rahul Sharma",
-    role: "Software Engineer, Microsoft",
+    role: "Software Engineer",
+    company: "Google",
     review:
-      "ReConnect helped me mentor students from my college and guide them toward internships.",
+      "Through ReConnect I found an amazing mentor who guided me during placement preparation.",
   },
   {
     id: 2,
-    name: "Priya Verma",
-    role: "Student, OIST",
+    image: avatar2,
+    name: "Priya Singh",
+    role: "Frontend Developer",
+    company: "Microsoft",
     review:
-      "Through ReConnect I connected with alumni who reviewed my resume and referred me for interviews.",
+      "The alumni referral helped me secure my internship and eventually a full-time offer.",
   },
   {
     id: 3,
-    name: "Ankit Patel",
-    role: "SDE, Amazon",
+    image: avatar3,
+    name: "Aditi Verma",
+    role: "SDE",
+    company: "Amazon",
     review:
-      "The platform makes it easy to give back to students by sharing jobs and mentorship.",
+      "Networking with alumni gave me confidence and helped me prepare for technical interviews.",
   },
 ];
 
 function Testimonials() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-lime-50">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center">
-          <h2 className="text-4xl font-bold">
-            What Our Community Says
-          </h2>
+        <SectionTitle
+          badge="Success Stories"
+          title="Hear From Our Alumni"
+          subtitle="Real experiences from alumni and students who built meaningful connections through ReConnect."
+        />
 
-          <p className="text-gray-600 mt-4">
-            Hear from students and alumni using ReConnect.
-          </p>
-        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
-
-          {testimonials.map((person) => (
-
-            <div
-              key={person.id}
-              className="bg-white rounded-3xl shadow-sm p-8 hover:shadow-xl transition"
-            >
-
-              <div className="flex text-yellow-400 mb-5">
-                <Star fill="currentColor" />
-                <Star fill="currentColor" />
-                <Star fill="currentColor" />
-                <Star fill="currentColor" />
-                <Star fill="currentColor" />
-              </div>
-
-              <p className="text-gray-600 leading-7">
-                "{person.review}"
-              </p>
-
-              <div className="mt-6">
-
-                <h3 className="font-semibold text-lg">
-                  {person.name}
-                </h3>
-
-                <p className="text-gray-500 text-sm">
-                  {person.role}
-                </p>
-
-              </div>
-
-            </div>
-
+          {testimonials.map((item) => (
+            <TestimonialCard
+              key={item.id}
+              {...item}
+            />
           ))}
 
         </div>
