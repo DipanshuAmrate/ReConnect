@@ -1,6 +1,5 @@
 import { Users, GraduationCap, Briefcase, Handshake } from "lucide-react";
-import CountUp from "react-countup";
-
+import AnimatedCounter from "../common/AnimatedCounter";
 const stats = [
   {
     id: 1,
@@ -45,12 +44,8 @@ function Stats() {
               </div>
 
               <h2 className="text-4xl font-bold text-gray-900">
-               <CountUp
-                 end={parseInt(item.number)}
-                  duration={3}
-               />
-                +
-              </h2>
+  <AnimatedCounter end={item.number} />+
+</h2>
 
               <p className="text-gray-600 mt-2">
                 {item.title}

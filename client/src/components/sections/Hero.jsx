@@ -43,26 +43,79 @@ function Hero() {
 
         {/* Right Side */}
 
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="relative flex justify-center"
-        >
-          <img
-            src={heroImage}
-            alt="Hero"
-            className="w-full max-w-lg"
-          />
+<motion.div
+  initial={{ opacity: 0, x: 80 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1 }}
+  className="relative flex justify-center items-center"
+>
 
-          <div className="absolute top-8 left-0 bg-white rounded-2xl shadow-lg px-5 py-3">
-            ⭐ 5000+ Alumni
-          </div>
+  {/* Hero Image */}
 
-          <div className="absolute bottom-8 right-0 bg-white rounded-2xl shadow-lg px-5 py-3">
-            💼 350+ Companies
-          </div>
-        </motion.div>
+  <img
+    src={heroImage}
+    alt="Hero"
+    className="w-full max-w-lg relative z-10"
+  />
+
+  {/* Card 1 */}
+
+  <motion.div
+    animate={{ y: [0, -12, 0] }}
+    transition={{
+      duration: 3,
+      repeat: Infinity,
+    }}
+    className="absolute top-6 left-0 bg-white rounded-2xl shadow-xl p-4 z-20"
+  >
+    <h3 className="font-bold text-lime-600">
+      5000+
+    </h3>
+
+    <p className="text-sm text-gray-500">
+      Alumni Network
+    </p>
+  </motion.div>
+
+  {/* Card 2 */}
+
+  <motion.div
+    animate={{ y: [0, 10, 0] }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+    }}
+    className="absolute bottom-8 right-0 bg-white rounded-2xl shadow-xl p-4 z-20"
+  >
+    <h3 className="font-bold text-lime-600">
+      350+
+    </h3>
+
+    <p className="text-sm text-gray-500">
+      Top Companies
+    </p>
+  </motion.div>
+
+  {/* Card 3 */}
+
+  <motion.div
+    animate={{ x: [0, 8, 0] }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+    }}
+    className="absolute top-1/2 -left-10 bg-white rounded-2xl shadow-xl p-4 hidden lg:block z-20"
+  >
+    <h3 className="font-bold text-lime-600">
+      900+
+    </h3>
+
+    <p className="text-sm text-gray-500">
+      Mentorship Sessions
+    </p>
+  </motion.div>
+
+</motion.div>
 
       </div>
     </section>
