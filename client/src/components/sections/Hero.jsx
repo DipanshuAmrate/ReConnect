@@ -11,11 +11,26 @@ import Button from "../common/Button";
 
 function Hero() {
   const companies = [
-  googleLogo,
-  microsoftLogo,
-  amazonLogo,
-  adobeLogo,
-  infosysLogo,
+  {
+    name: "Google",
+    logo: googleLogo,
+  },
+  {
+    name: "Microsoft",
+    logo: microsoftLogo,
+  },
+  {
+    name: "Amazon",
+    logo: amazonLogo,
+  },
+  {
+    name: "Adobe",
+    logo: adobeLogo,
+  },
+  {
+    name: "Infosys",
+    logo: infosysLogo,
+  },
 ];
   return (
     <section className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-lime-100 flex items-center pt-24">
@@ -156,7 +171,33 @@ function Hero() {
 
   </div>
 
-</div>
+      </div>
+
+      {/* Trusted Companies */}
+
+      <div className="mt-24 border-t border-gray-200 pt-10">
+
+        <p className="text-center text-gray-500 text-sm uppercase tracking-widest mb-8">
+          Trusted by alumni working at
+        </p>
+
+        <div className="flex flex-wrap justify-center items-center gap-12">
+
+          {companies.map((company) => (
+
+            <img
+              key={company.name}
+              src={company.logo}
+              alt={company.name}
+              className="h-10 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition duration-300"
+            />
+
+          ))}
+
+        </div>
+
+      </div>
+
     </section>
   );
 }
