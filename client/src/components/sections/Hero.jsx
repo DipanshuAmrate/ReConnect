@@ -1,8 +1,22 @@
 import { motion } from "framer-motion";
-import heroImage from "../../assets/images/Hero.svg";
+import heroImage from "../../assets/images/hero.svg";
+
+import googleLogo from "../../assets/logos/google.svg";
+import microsoftLogo from "../../assets/logos/microsoft.svg";
+import amazonLogo from "../../assets/logos/amazon.svg";
+import adobeLogo from "../../assets/logos/adobe.svg";
+import infosysLogo from "../../assets/logos/infosys.svg";
+
 import Button from "../common/Button";
 
 function Hero() {
+  const companies = [
+  googleLogo,
+  microsoftLogo,
+  amazonLogo,
+  adobeLogo,
+  infosysLogo,
+];
   return (
     <section className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-lime-100 flex items-center pt-24">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
@@ -118,6 +132,31 @@ function Hero() {
 </motion.div>
 
       </div>
+
+      {/* Trusted Companies */}
+
+<div className="max-w-7xl mx-auto px-6 mt-20">
+
+  <p className="text-center text-gray-500 font-medium mb-8">
+    Trusted by alumni working at
+  </p>
+
+  <div className="flex flex-wrap justify-center items-center gap-10">
+
+    {companies.map((logo, index) => (
+
+      <img
+        key={index}
+        src={logo}
+        alt="Company Logo"
+        className="h-10 opacity-60 hover:opacity-100 transition duration-300"
+      />
+
+    ))}
+
+  </div>
+
+</div>
     </section>
   );
 }
