@@ -1,88 +1,72 @@
 import {
-  Search,
   UserPlus,
-  MessagesSquare,
-  Trophy,
+  Search,
+  Users,
+  TrendingUp,
 } from "lucide-react";
+
+import SectionTitle from "../common/SectionTitle";
+import StepCard from "../cards/StepCard";
 
 const steps = [
   {
     id: 1,
-    icon: <Search size={40} />,
-    title: "Find Alumni",
+    number: "01",
+    icon: <UserPlus size={32} />,
+    title: "Create Account",
     description:
-      "Search verified alumni by company, batch, skills, or department.",
+      "Sign up as a student or alumni and complete your profile.",
   },
   {
     id: 2,
-    icon: <UserPlus size={40} />,
-    title: "Connect",
+    number: "02",
+    icon: <Search size={32} />,
+    title: "Find Alumni",
     description:
-      "Send connection or mentorship requests to alumni.",
+      "Search alumni by company, skills, department or graduation year.",
   },
   {
     id: 3,
-    icon: <MessagesSquare size={40} />,
-    title: "Interact",
+    number: "03",
+    icon: <Users size={32} />,
+    title: "Connect",
     description:
-      "Chat, schedule meetings and receive career guidance.",
+      "Send mentorship requests, ask questions and build your network.",
   },
   {
     id: 4,
-    icon: <Trophy size={40} />,
+    number: "04",
+    icon: <TrendingUp size={32} />,
     title: "Grow Career",
     description:
-      "Get referrals, internships and placement opportunities.",
+      "Receive referrals, internships and career guidance from alumni.",
   },
 ];
 
 function HowItWorks() {
   return (
     <section className="py-24 bg-white">
-
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center">
+        <SectionTitle
+          badge="How It Works"
+          title="Start Your Career Journey"
+          subtitle="Connecting with alumni takes only a few simple steps."
+        />
 
-          <h2 className="text-4xl font-bold text-gray-900">
-            How ReConnect Works
-          </h2>
-
-          <p className="text-gray-600 mt-4">
-            Connect with alumni in four simple steps.
-          </p>
-
-        </div>
-
-        <div className="grid md:grid-cols-4 gap-8 mt-16">
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
           {steps.map((step) => (
-
-            <div
+            <StepCard
               key={step.id}
-              className="relative text-center"
-            >
-
-              <div className="w-20 h-20 bg-lime-100 rounded-full flex items-center justify-center mx-auto text-lime-600">
-                {step.icon}
-              </div>
-
-              <h3 className="text-xl font-semibold mt-6">
-                {step.title}
-              </h3>
-
-              <p className="text-gray-600 mt-4">
-                {step.description}
-              </p>
-
-            </div>
-
+              number={step.number}
+              icon={step.icon}
+              title={step.title}
+              description={step.description}
+            />
           ))}
-
         </div>
 
       </div>
-
     </section>
   );
 }
