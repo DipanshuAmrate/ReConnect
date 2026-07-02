@@ -27,7 +27,7 @@ const testimonials = [
   {
     id: 3,
     image: avatar3,
-    name: "Aditi Verma",
+    name: "Aditya Verma",
     role: "SDE",
     company: "Amazon",
     review:
